@@ -1,0 +1,22 @@
+# dependencies
+node_modules/
+
+# build outputs
+dist/
+build/
+out/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# editor files
+.vscode/
+.idea/
+
+# misc
+coverage/
+*.tgz
+
+# TypeScript
+*.tsbuildinfo

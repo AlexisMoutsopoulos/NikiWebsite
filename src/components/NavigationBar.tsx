@@ -26,9 +26,13 @@ const useStyles = makeStyles(() => ({
     boxShadow: "0 10px 25px rgba(0,0,0,.10) !important",
   },
 
+  icon: {
+    width: 20,
+    height: 20
+  },
+
   toolbar: {
     position: "relative",
-    minHeight: 72,
     display: "flex",
     alignItems: "center",
   },
@@ -113,7 +117,7 @@ export default function NavigationBar() {
       <Container maxWidth="xl" disableGutters>
         <Toolbar disableGutters className={classes.toolbar}>
           <Box className={classes.brandContainer}>
-            <PetsOutlinedIcon sx={{ color: "white" }} /> {/* REMOVE */}
+            <img src="resources/pouch.png" className={classes.icon}/>
             <Typography variant="h6" noWrap component="a" className={classes.brand} href="/">
               POUGKAKI
             </Typography>
