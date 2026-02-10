@@ -13,6 +13,8 @@ import PetsOutlinedIcon from "@mui/icons-material/PetsOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import { theme } from "./Theme";
+import { Padding } from "@mui/icons-material";
 
 const links = [
   { label: "About", to: "/about", Icon: InfoOutlinedIcon },
@@ -35,6 +37,13 @@ const useStyles = makeStyles(() => ({
     position: "relative",
     display: "flex",
     alignItems: "center",
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+      gap: 12,
+      padding: "14px 12px",
+      alignItems: "center",
+      minHeight: "auto",
+    },
   },
 
   brandContainer: {
@@ -62,6 +71,16 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     alignItems: "center",
     gap: 34,
+    [theme.breakpoints.down("md")]: {
+      position: "relative",
+      left: "auto",
+      transform: "none",
+      width: "100%",
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "center",
+      gap: 8,
+  },
   },
 
   navLink: {

@@ -4,10 +4,14 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import MdPhone from "@mui/icons-material/Phone";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
+import { theme } from "../Theme";
 
 const useStyles = makeStyles(() => ({
     page: {
         padding: 30,
+        [theme.breakpoints.down("md")]: {
+            padding: 10
+        }
     },
 
     title: {
@@ -23,6 +27,9 @@ const useStyles = makeStyles(() => ({
         paddingTop: 40,
         display: "flex",
         justifyContent: "space-between",
+        [theme.breakpoints.down("md")]: {
+            flexDirection: "column"
+        }
     },
 
     box: {
@@ -33,7 +40,10 @@ const useStyles = makeStyles(() => ({
         border: "1px solid rgba(80, 60, 35, 0.2)",
         padding: 20,
         zIndex: 1,
-        boxShadow: "0 10px 25px rgba(0, 0, 0, 0.5)"
+        boxShadow: "0 10px 25px rgba(0, 0, 0, 0.5)",
+        [theme.breakpoints.down("md")]: {
+            width: "100%"
+        }
     },
 
     item: {

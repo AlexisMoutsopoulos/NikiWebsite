@@ -6,10 +6,6 @@ dist/
 build/
 out/
 
-# OS files
-.DS_Store
-Thumbs.db
-
 # editor files
 .vscode/
 .idea/
