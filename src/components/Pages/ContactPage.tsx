@@ -66,12 +66,19 @@ const useStyles = makeStyles(() => ({
         fontWeight: 700,
         color: "#3b2b1b",
         lineHeight: 1.1,
+        [theme.breakpoints.down("md")]: {
+            fontSize: 18,
+        }
+        
     },
 
     itemSub: {
         marginTop: 6,
         fontSize: 20,
         color: "rgba(59, 43, 27, 0.70)",
+        [theme.breakpoints.down("md")]: {
+            fontSize: 15,
+        }
     },
 
     divider: {
@@ -125,6 +132,10 @@ const useStyles = makeStyles(() => ({
         marginTop: 4,
         fontSize: 13,
         color: "rgba(59, 43, 27, 0.70)",
+        [theme.breakpoints.down("md")]: {
+            fontSize: 10,
+        }
+        
     },
 
 }))

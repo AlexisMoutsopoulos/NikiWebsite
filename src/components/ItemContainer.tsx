@@ -1,6 +1,5 @@
 import { Box, Container } from "@mui/material"
 import { makeStyles } from "@mui/styles"
-import { ItemTextData } from "../types/Types";
 import { items } from "../constansts/ImagesText";
 import { useParams } from "react-router-dom";
 

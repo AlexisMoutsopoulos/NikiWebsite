@@ -7,12 +7,9 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles(() => ({
   outer: {
     position: "absolute",
-    left: 0,
     width: "360px",
     maxWidth: "100%",
-    height: "80%",
-    padding: 10,
-    margin: 20,
+    height: "100%",
     borderRadius: "24px"
   },
 
