@@ -36,7 +36,7 @@ const useStyles = makeStyles(() => ({
     margin: 20,
 
     [theme.breakpoints.down("md")]: {
-      width: "100%",
+      width: "auto",
       height: 700,
       borderRadius: 14,
       overflow: "hidden",
