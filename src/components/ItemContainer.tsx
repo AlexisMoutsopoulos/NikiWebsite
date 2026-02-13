@@ -2,12 +2,23 @@ import { Box, Container } from "@mui/material"
 import { makeStyles } from "@mui/styles"
 import { items } from "../constansts/ImagesText";
 import { useParams } from "react-router-dom";
+import { theme } from "./Theme";
 
 const useStyles = makeStyles(() => ({
   outer: {
     display: "flex",
-    justifyContent: "center",
     marginTop: 40,
+    gap: 50,
+    marginLeft: "auto",
+    marginRight: "auto",
+    [theme.breakpoints.down("md")]: {
+      padding: 5,
+      marginTop: 10,
+      gap: 10,
+      flexDirection: "column",
+      
+    }
+        
   },
 
   imageArea: {
@@ -18,49 +29,70 @@ const useStyles = makeStyles(() => ({
     overflow: "hidden",
     backgroundSize: "cover",
     backgroundPosition: "center",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      height: 400,
+      marginTop: 10,
+      flexDirection: "column",
+      
+    }
   },
 
   overlay: {
     position: "absolute",
     inset: 0, //“Stick this element to all four edges of its parent.”
     background: "linear-gradient(rgba(255, 255, 255, 0.49) 0%, rgba(255, 255, 255, 0.37) 55%, rgba(255, 255, 255, 0) 100%)",
+    
   },
 
   ingredients: {
-    position: "absolute",
-    right: "2%",
+    position: "relative",
     opacity: 0.8,
-    top: "20%",
+    zIndex: 1,
     display: "flex",
     flexDirection: "column", 
-    justifyContent: "flex-start",
     alignItems: "center", 
     backgroundColor: "white",
-    width: "30%",
-    height: "70%",
+    width: "60%",
+    paddingTop: 40,
+    height: 600,
     padding: 10,
-    borderRadius: 20
+    borderRadius: 20,
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      padding: 5,
+      paddingTop: 10,
+      height: "auto",
+      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)",
+      border: "1px solid rgba(80, 60, 35, 0.2)",
+      background: "linear-gradient(90deg, #e7d0a25e 0%, #be9337 45%, #efe3cc 100%)"
+    }
+            
   },
 
   ingrTitle: {
     fontSize: 20,
     fontWeight: 700,
-    marginBottom: 8,
-    color: "#77067f"
+    color: "#77067f",
+    
   },
 
   title: {
     fontSize: 40,
     fontWeight: 700,
     marginBottom: 8,
-    color: "#77067f"
+    color: "#77067f",
+    [theme.breakpoints.down("md")]: {
+      fontSize: 20
+    }
+    
   },
 
   ingredientsList: {
     width: "100%",
     marginTop: 15,
     display: "flex",
-    alignItems: "center",
+    alignItems: "eft",
     flexDirection: "column",
     gap: 20,
     overflowY: "auto",     // scroll if long
@@ -68,8 +100,7 @@ const useStyles = makeStyles(() => ({
 
   ingredientRow: {
     display: "flex",
-    alignItems: "flex-start",
-    gridTemplateColumns: "48px 1fr",
+    alignItems: "center",
     gap: 12,
   },
 
@@ -78,7 +109,6 @@ const useStyles = makeStyles(() => ({
     height: 44,
     borderRadius: 12,
     overflow: "hidden",
-    flex: "0 0 auto",
   },
 
   ingredientImg: {
@@ -109,10 +139,13 @@ const useStyles = makeStyles(() => ({
   },
 
   textCard: {
-    width: "50%",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center", 
     minWidth: 320,
     padding: 40,
-    textAlign: "left", 
+    textAlign: "center"
   },
 }));
 
@@ -128,6 +161,11 @@ export const ItemContainer = () => {
         style={{ backgroundImage: `url(${itemTextData.imagePath})` }}
       >
         <Box className={classes.overlay} />
+        <Box className={classes.textCard}>
+          <Box className={classes.title}>{itemTextData.title}</Box>
+          <Box className={classes.description}>{itemTextData.text}</Box>
+        </Box>
+      </Box>
           <Box className={classes.ingredients}>
             <Box className={classes.ingrTitle}> Key Ingredients</Box>
             <Box className={classes.ingredientsList}>
@@ -145,11 +183,7 @@ export const ItemContainer = () => {
               ))}
             </Box>
           </Box>
-          <Box className={classes.textCard}>
-            <Box className={classes.title}>{itemTextData.title}</Box>
-            <Box className={classes.description}>{itemTextData.text}</Box>
-          </Box>
-      </Box>
+      
     </Container>
   );
 };

@@ -28,7 +28,8 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         justifyContent: "space-between",
         [theme.breakpoints.down("md")]: {
-            flexDirection: "column"
+            flexDirection: "column",
+            gap: 10
         }
     },
 
