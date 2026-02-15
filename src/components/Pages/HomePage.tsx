@@ -203,7 +203,7 @@ export const HomePage = () => {
                     <div className={classes.boxText}>Hand & Body Care</div>
                 </Box>
             </Box>
-            <h2 className={classes.featureCatTitle}>Fragance</h2>
+            <h2 className={classes.featureCatTitle}>Fragances</h2>
             <Box className={classes.featureCat}>
                 <Box className={classes.boxes}>
                     <img src="resources/peach.png" alt="Travel Package" className={classes.img} />

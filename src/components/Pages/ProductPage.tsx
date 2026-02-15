@@ -3,5 +3,5 @@ import { SetContainer } from "../SetContainer"
 
 
 export const ProductPage = () => {
-    return sets.map(set => (<SetContainer setTextData={set}/>))
+    return <SetContainer setTextData={sets}/>
 }

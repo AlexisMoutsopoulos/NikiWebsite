@@ -1,93 +1,88 @@
 import makeStyles from "@mui/styles/makeStyles"
 import { SetTextData } from "../types/Types"
-import { Box, Container } from "@mui/material"
-import { PhotoCarouselMui } from "./PhotoCarouselMui"
-import { items, sets } from "../constansts/ImagesText"
-import { Link } from "react-router-dom"
+import { Box, Button, Container, Tooltip } from "@mui/material"
+import { Link, useNavigate } from "react-router-dom"
 import { theme } from "./Theme"
+import { PeachIcon, TeaIcon, WhiteFlowersIcon } from "../icons"
+import { JSX } from "react"
+
+const fragranceIcons = new Map<string, JSX.Element>([
+  ["green tea", <TeaIcon />],
+  ["white flowers", <WhiteFlowersIcon />],
+  ["peach", <PeachIcon />],
+]);
 
 const useStyles = makeStyles(() => ({
   outer: {
     display: "flex",
-    justifyContent: "center",
-    marginTop: 40,
     position: "relative",
-    width: 1200,
-    height: 600,
-    borderRadius: 28,
+    width: "100%",
+    flexDirection: "column",
+    height: 1100,
+    marginBottom: 20,
+    marginTop: 5,
     background: "#FBF7F1",
-    boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)",
     border: "1px solid #E7D8C6 ",
-    padding: 20,
     [theme.breakpoints.down("md")]: {
       width: "100%",
-      height: "100%",
-      flexDirection: "column",
-      padding: 12,
-      borderRadius: 18,
+      height: "auto",
+      alignItems: "center"
     },
   },
 
-  carouselWrap: {
-    width: "40%",
-    height: "90%",
-    left: 0,
-    position: "absolute",
-    margin: 20,
+  boxImage: {
+    width: "100%",
+    height: 800,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  },
 
-    [theme.breakpoints.down("md")]: {
-      width: "auto",
-      height: 700,
-      borderRadius: 14,
-      overflow: "hidden",
-      position: "relative"
+  featureCatTitle: {
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 20,
+    display: "flex",
+    paddingTop: 50,
+    fontSize: 30,
+    "&::before, &::after": {
+      content: '""',
+      height: 0.5,
+      flex: "0 1 400px",
+      backgroundColor: "rgba(0,0,0,0.25)",
     },
+    [theme.breakpoints.down("md")]: {
+      gap: 10,
+      paddingTop: 10,
+      fontSize: 20,
+    }
   },
 
   textArea: {
-    backgroundColor: "white",
-    position: "absolute",
-    width: "60%",
-    right: 0,
-    margin: 20,
+    width: "100%",
     padding: 18,
-    height: "90%",
-    borderRadius: 18,
-
     [theme.breakpoints.down("md")]: {
-      position: "relative",
       width: "100%",
-      height: "100%",
-      top: 0,
-      padding: 5,
-      margin: 0,
-      borderRadius: 14,
+      textAlign: "center",
+      padding: 15,
     },
   },
 
-  title: {
-    fontSize: 50,
-    padding: 10,
-    fontWeight: 400,
-
-    [theme.breakpoints.down("md")]: {
-      fontSize: 28,
-      padding: 6,
-    },
-  },
-
-  description: {
+  setDescription: {
     fontSize: 20,
+    width: "50%",
+    lineHeight: 2,
     color: "#585358",
     padding: 10,
-
     [theme.breakpoints.down("md")]: {
       fontSize: 16,
+      width: "100%",
+      textAlign: "center",
       padding: 6,
     },
   },
 
-  itemTitle: {
+  setTitle: {
     fontSize: 40,
     color: "#000000",
     padding: 10,
@@ -95,46 +90,141 @@ const useStyles = makeStyles(() => ({
     [theme.breakpoints.down("md")]: {
       fontSize: 20,
       padding: 6,
+    },
+  },
+
+  items: {
+    display: "flex",
+    justifyContent: "center",
+    gap: 20,
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column"
+    },
+    
+  },
+
+  itemTitle: {
+    fontSize: 20,
+    color: "#000000",
+    paddingTop: 10,
+
+    [theme.breakpoints.down("md")]: {
+      fontSize: 20,
+      padding: 6,
+    },
+  },
+
+  itemText: {
+    fontSize: 15,
+    color: "#6a6262",
+    padding: 10,
+    textAlign: "left",
+
+    [theme.breakpoints.down("md")]: {
+      fontSize: 15,
+      padding: 6,
       marginTop: 6,
     },
   },
 
   item: {
-    paddingLeft: 20,
+    display: "flex",
+    alignItems: "center",
+    overflow: "hidden",
+    flexDirection: "column",
     margin: 20,
+    width: 300,
+    height: 350,
     fontSize: 20,
-
+    boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)",
+    border: "1px solid rgba(80, 60, 35, 0.2)",
+    borderRadius: 28,
+    background: "#e8d7b5",
     [theme.breakpoints.down("md")]: {
       margin: 10,
-      fontSize: 16,
     },
   },
+
+  itemImgWrap: {
+    width: "100%",
+    height: "40%",     
+    overflow: "hidden",
+    background: "#fff",
+  },
+
+  itemImg: {
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+    display: "block",
+  },
+
+  fragancesList: {
+    display: "flex",
+    gap: 5,
+    padding: 10
+  },
+
+  fragance: {
+    borderRadius: 20,
+    background: "#dcb9e6",
+    fontSize: 15,
+    padding: 5
+  },
+
+  button: {
+    width: "60%",
+    background: "#ca68e5",
+    color: "#cec8d0",
+    borderRadius: 20,
+  }
 }));
+
 interface SetContainerProps{
-    setTextData : SetTextData
+    setTextData : SetTextData[]
 }
 
 export const SetContainer = ({ setTextData } : SetContainerProps) =>  {
-const classes = useStyles();
+  const classes = useStyles();
+  const navigate = useNavigate();
 
   return (
-    <Container className={classes.outer}>
-      <Box className={classes.carouselWrap}>
-        <PhotoCarouselMui images={[items[0].imagePath, sets[0].imagePath, items[1].imagePath]} />
-      </Box>
-        <Box className={classes.textArea}>
-          <Box className={classes.title}>{setTextData.name}</Box>
-          <Box className={classes.description}>{setTextData.description}</Box>
-          <Box className={classes.itemTitle}>Set Contains:</Box>
-          <ul className={classes.item}>
-            {setTextData.itemTextData.map((item) => {
-              return (
-                <li><Link to={`/${item.id}`}>{item.title}</Link></li>
-              );
-            })}
-            
-          </ul>
-        </Box>
-    </Container>
-  );
-}
+      <>
+        {setTextData.map((set, idx) => (
+          <Box className={classes.outer}>
+            <Box className={classes.boxImage} style={{ backgroundImage: `url('resources/aboutImage.png')` }}>
+              <Box className={classes.textArea}>
+                <h1 className={classes.setTitle}>{set.name}</h1>
+                <div className={classes.setDescription}>{set.description}</div>
+              </Box>
+            </Box>
+            <h2 className={classes.featureCatTitle}>Featured Products</h2>
+            <Box className={classes.items}>
+              {set.itemTextData.map((item) => (
+                  <Box className={classes.item}>
+                    <Box className={classes.itemImgWrap}>
+                      <img className={classes.itemImg} src={item.imagePath} alt={item.title} />
+                    </Box>
+                    <div className={classes.itemTitle}>{item.title}</div>
+                    <div className={classes.itemText}>{item.text}</div>
+                    <Box className={classes.fragancesList}>
+                      {item.fragances.map((fr) => (
+                        <Tooltip key={fr} title={`Fragrance: ${fr}`} 
+                          arrow 
+                          enterTouchDelay={0}      // show immediately on tap
+                          leaveTouchDelay={2000}   // hide after 2s
+                          >
+                          <span>{fragranceIcons.get(fr) ?? null}</span>
+                        </Tooltip>
+                      ))}
+                    </Box>
+                    <Button className={classes.button} onClick={() => navigate(`/${item.id}`)}>View Details</Button>
+                  </Box>
+                
+              ))}
+            </Box>
+          </Box>
+        ))}
+      </>
+    );
+};

@@ -3,6 +3,7 @@ export type ItemTextData = {
   imagePath: string;
   text: string;
   title: string;
+  fragances: string[]
   ingredients: Ingredients[]
 
 };

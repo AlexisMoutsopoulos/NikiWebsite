@@ -6,6 +6,7 @@ export const items: ItemTextData[] = [
     imagePath: "resources/shapoo.jpg",
     title: "Travel Size Shower Gel (100ml)",
     text: "A gentle, travel-friendly body cleanser that creates a soft foam ...",
+    fragances: ["peach", "white flowers", "green tea"],
     ingredients: [
       {
         id: "e1111111-1111-4111-8111-111111111111",
@@ -39,6 +40,7 @@ export const items: ItemTextData[] = [
     imagePath: "resources/body-lotion.jpg",
     title: "Travel Size Body Lotion (100ml)",
     text: "A fast-absorbing lotion formulated for on-the-go hydration ...",
+    fragances: ["peach", "white flowers", "green tea"],
     ingredients: [
       {
         id: "e2222222-2222-4222-8222-222222222221",
@@ -72,6 +74,7 @@ export const items: ItemTextData[] = [
     imagePath: "resources/shapoo.jpg",
     title: "Shower Gel (250ml)",
     text: "An everyday shower gel that cleanses thoroughly ...",
+    fragances: ["peach", "white flowers", "green tea"],
     ingredients: [
       {
         id: "e3333333-3333-4333-8333-333333333331",
@@ -105,6 +108,7 @@ export const items: ItemTextData[] = [
     imagePath: "resources/body-lotion.jpg",
     title: "Body Lotion (250ml)",
     text: "A lightweight, fast-absorbing body lotion designed to keep skin soft ...",
+    fragances: ["peach", "white flowers", "green tea"],
     ingredients: [
       {
         id: "e4444444-4444-4444-8444-444444444441",
@@ -138,6 +142,7 @@ export const items: ItemTextData[] = [
     imagePath: "resources/image.png",
     title: "Body Scrub (100ml)",
     text: "A creamy exfoliating scrub that gently buffs away dullness ...",
+    fragances: ["peach", "white flowers", "green tea"],
     ingredients: [
       {
         id: "e5555555-5555-4555-8555-555555555551",
@@ -171,6 +176,7 @@ export const items: ItemTextData[] = [
     imagePath: "resources/soap-bar.jpg",
     title: "Soap Bar (100g)",
     text: "A creamy cleansing bar that washes away daily impurities ...",
+    fragances: ["peach", "white flowers", "green tea"],
     ingredients: [
       {
         id: "e6666666-6666-4666-8666-666666666661",
@@ -204,6 +210,7 @@ export const items: ItemTextData[] = [
     imagePath: "resources/image.png",
     title: "Hand Serum (50ml)",
     text: "A concentrated, silky serum that targets dry, overworked hands ...",
+    fragances: ["peach", "white flowers", "green tea"],
     ingredients: [
       {
         id: "e7777777-7777-4777-8777-777777777771",
