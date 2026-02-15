@@ -1,22 +1,24 @@
-import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import { makeStyles } from "@mui/styles";
 import { NavLink } from "react-router-dom";
 
 // Brand + tab icons (feel free to swap these)
-import PetsOutlinedIcon from "@mui/icons-material/PetsOutlined";
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import { theme } from "./Theme";
-import { Padding } from "@mui/icons-material";
+import { Menu, MenuItem, useMediaQuery } from "@mui/material";
+import React from "react";
 
 const links = [
+  { label: "Home", to: "/home", Icon: HomeOutlinedIcon },
   { label: "About", to: "/about", Icon: InfoOutlinedIcon },
   { label: "Products", to: "/products", Icon: ShoppingBagOutlinedIcon },
   { label: "Contact", to: "/contact", Icon: MailOutlineIcon },
@@ -38,10 +40,9 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     alignItems: "center",
     [theme.breakpoints.down("md")]: {
-      flexDirection: "column",
       gap: 12,
       padding: "14px 12px",
-      alignItems: "center",
+      justifyContent: "space-between",
       minHeight: "auto",
     },
   },
@@ -130,19 +131,63 @@ const useStyles = makeStyles(() => ({
 
 export default function NavigationBar() {
   const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  return (
-    <AppBar position="static" className={classes.appBar}>
+  const handleOpen = (e: React.MouseEvent<HTMLElement>) => setAnchorEl(e.currentTarget);
+  const handleClose = () => setAnchorEl(null);
+
+  return (isMobile) ? (
+  <AppBar position="static" className={classes.appBar}>
       <Container maxWidth="xl" disableGutters>
         <Toolbar disableGutters className={classes.toolbar}>
           <Box className={classes.brandContainer}>
             <img src="resources/pouch.png" className={classes.icon}/>
-            <Typography variant="h6" noWrap component="a" className={classes.brand} href="/">
+            <div className={classes.brand}>
               POUGKAKI
-            </Typography>
+            </div>
           </Box>
-
-          {/* ONLY the 3 tabs */}
+          <IconButton edge="end" color="inherit" aria-label="menu" onClick={handleOpen}>
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+            transformOrigin={{ vertical: "top", horizontal: "right" }}
+          >
+            {links.map(({ to, label, Icon }: any) => (
+              <MenuItem key={to} onClick={handleClose} disableGutters>
+                <NavLink to={to} className={classes.navLink}>
+                  {({ isActive }) => (
+                    <Button
+                      fullWidth
+                      disableRipple
+                      className={`${classes.menuItem} ${isActive ? classes.activeMenuItem : ""}`}
+                      startIcon={<Icon className={classes.tabIcon} />}
+                    >
+                      {label}
+                    </Button>
+                  )}
+                </NavLink>
+              </MenuItem>
+            ))}
+          </Menu>
+        </Toolbar>
+      </Container>
+    </AppBar>)
+    : 
+    (<AppBar position="static" className={classes.appBar}>
+      <Container maxWidth="xl" disableGutters>
+        <Toolbar disableGutters className={classes.toolbar}>
+          <Box className={classes.brandContainer}>
+            <img src="resources/pouch.png" className={classes.icon}/>
+            <div className={classes.brand}>
+              POUGKAKI
+            </div>
+          </Box>
           <Box className={classes.menuContainer}>
             {links.map(({ to, label, Icon }) => (
               <NavLink key={to} to={to} className={classes.navLink}>

@@ -92,7 +92,7 @@ const useStyles = makeStyles(() => ({
     width: "100%",
     marginTop: 15,
     display: "flex",
-    alignItems: "eft",
+    alignItems: "left",
     flexDirection: "column",
     gap: 20,
     overflowY: "auto",     // scroll if long

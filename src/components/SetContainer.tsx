@@ -15,9 +15,9 @@ const useStyles = makeStyles(() => ({
     width: 1200,
     height: 600,
     borderRadius: 28,
-    background: "linear-gradient(90deg, #e7d0a25e 0%, #ede1c7 45%, #efe3cc 100%)",
+    background: "#FBF7F1",
     boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)",
-    border: "1px solid rgba(80, 60, 35, 0.2)",
+    border: "1px solid #E7D8C6 ",
     padding: 20,
     [theme.breakpoints.down("md")]: {
       width: "100%",

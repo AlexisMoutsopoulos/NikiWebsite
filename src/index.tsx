@@ -7,7 +7,7 @@ import { theme } from "./components/Theme";
 const useStyles = makeStyles(() => ({
   appBg: {
     minHeight: "100vh",
-    backgroundColor: "#efe3cc",
+    backgroundColor: "#EEE2CF",
   },
 }));
 

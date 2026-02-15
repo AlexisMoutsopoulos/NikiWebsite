@@ -19,7 +19,12 @@ module.exports = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: "ts-loader"
-      }
+      },
+      {
+        test: /\.svg$/i,
+        type: "javascript/auto",
+        use: ["@svgr/webpack"],
+      },
     ]
   },
   plugins: [

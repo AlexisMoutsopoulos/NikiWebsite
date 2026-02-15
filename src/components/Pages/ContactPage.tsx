@@ -34,11 +34,11 @@ const useStyles = makeStyles(() => ({
     },
 
     box: {
-        background: "linear-gradient(90deg, #e7d0a25e 0%, #ede1c7 45%, #efe3cc 100%)",
+        background: "#FBF7F1",
         width: "40%",
         height: 400,
         borderRadius: 20,
-        border: "1px solid rgba(80, 60, 35, 0.2)",
+        border: "1px solid #E7D8C6 ",
         padding: 20,
         zIndex: 1,
         boxShadow: "0 10px 25px rgba(0, 0, 0, 0.5)",
