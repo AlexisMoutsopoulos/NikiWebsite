@@ -5,3 +5,5 @@ export { default as SkinIcon} from "./skin.svg";
 export { default as PeachIcon} from "./peach.svg"
 export { default as TeaIcon} from "./tea.svg"
 export { default as WhiteFlowersIcon} from "./whiteflowers.svg"
+export { default as PawIcon } from "./paw.svg"
+export { default as BowlIcon } from "./bowl.svg"
