@@ -62,8 +62,9 @@ const useStyles = makeStyles(() => ({
         opacity: 0,
         animation: "$slideInRight 900ms ease-out forwards",
         display: "flex",     
-        alignItems: "center",  
+        alignItems: "center",
         gap: 16, 
+        alignSelf: "flex-end"
     },
 
     "@keyframes slideInRight": {
@@ -79,18 +80,16 @@ const useStyles = makeStyles(() => ({
 
     aboutRemarks: {
         display: "flex",
-        position: "absolute",  
-        right: 40,   
-        alignItems: "center",        
-        top: "60%",            
+        right: 40,
         transform: "translateY(-50%)",
         width: 400,
+        marginTop: 100,
         padding: "18px 22px",
         textAlign: "center",
+        alignSelf: "flex-end",
         borderRadius: 6,
         [theme.breakpoints.down("md")]: {
             right: 0, 
-            top: "50%",
         }
     },
 
